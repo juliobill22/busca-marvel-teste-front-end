@@ -1,0 +1,336 @@
+/* Created on : Apr 26, 2018, 3:39:03 PM Author : Julio Bill Schvenger */
+* {
+    font-family: 'Roboto';
+}
+#tit-busca-marvel, #tit-teste-front-end, #tit-candidato {
+    opacity: 100%;
+    color: #d42026;
+    font-size: 27px;
+    line-height: 32px;    
+}
+#tit-busca-marvel {
+    font-weight: bold;
+}
+#tit-teste-front-end {
+    font-weight: lighter;
+}
+#tit-candidato {
+    font-weight: lighter;
+    position: absolute;
+    right: 50px;
+}
+#linha-titulo {
+    background-color: #d42026;
+    height: 4px;
+    width: 54px;
+}
+#div-nome-personagem {
+    color: #d42026;
+    font-size: 16px;
+    margin-top: 34px;
+    margin-bottom: 34px;
+    opacity: 100%;
+}
+#text-personagem {
+    width: 400px;
+    height: 31px;
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+}
+#div-all {
+    margin-top: 20px;
+    margin-left: 42px;
+    margin-right: 42px;
+}
+#div-list-navegation {
+    overflow: auto;
+    height: 300px;
+}
+input {
+    display: block;
+}
+#table-list-personagens {
+    width: 100%;
+    height: 20%;
+    border-collapse: collapse;
+    position: relative;
+}
+#table-list-personagens th, td {
+    text-align: left;
+    cursor: pointer;
+}
+#table-list-personagens td {
+    font-size: 21px;
+    padding: 13px;
+    height: 50px;
+    border-bottom: 3px solid #f6d2d4;
+}
+#table-list-personagens tbody tr:hover {
+    background-color: rgba(251, 232, 233, 0.9);
+}
+#th-personagem, #th-series {
+    background-color: #d42026;
+    border-right: 10px solid #FFFFFF;
+    color: #FFFFFF;
+    width: 25%;
+    height: 37px;
+    padding-left: 15px;
+}
+#th-eventos {
+    background-color: #d42026;
+    border-left: 10px solid #d42026;
+    color: #FFFFFF;
+    height: 37px;
+    padding-left: 15px;
+}
+img {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+}
+#div-navegation {
+    position: relative;
+    text-align: center;
+    margin-top: 42px;
+    background-color: #FFFFFF;
+    margin-left: 1px;
+    user-select: none;
+}
+.pagination-circle {
+    background-color: #FFFFFF;
+    height: 32px;
+    width: 32px;     
+    border-radius: 50%;
+    margin-left: 25px;
+    border: 1px solid #d42026;
+    display: inline-block;
+    cursor: pointer;
+}
+.pagination-circle a {
+    font-size: 21px;
+    text-decoration: none;
+    color: #d42026;
+    display: inline-block;
+    margin-top: 13%;
+    cursor: pointer;
+}
+.pagination-circle:hover {background-color: #d42026;}
+.pagination-circle:hover a {color: #ffffff;}
+
+.pagination-circle-active {background-color: #d42026;}
+.pagination-circle-active a {color: #ffffff;}
+
+.pagination-arrow-left, .pagination-arrow-right {
+    background-color: #d42026;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;                
+    border-top: 8px solid #FFFFFF;
+    border-bottom: 8px solid #FFFFFF;
+}    
+.pagination-arrow-left {    
+    left: 10px;
+    border-left: 12px solid #FFFFFF;
+    border-right: 12px solid #d42026;           
+}
+.pagination-arrow-right {
+    right: -16px;
+    border-left: 12px solid #d42026;       
+    border-right: 12px solid #FFFFFF;    
+}
+.pagination-arrow-left:hover, .pagination-arrow-right:hover {
+    opacity: 0.3;
+}            
+#myDialog {
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);    
+    border-width: 0px;
+}
+#myDialog #div-dialog {
+    position: absolute;
+    background-color: #FFFFFF;
+    left: 10%;
+    right: 10%;
+    width: 77%;
+    height: 76%;
+    margin-top: -6%;
+    border-radius: 10px;
+    overflow: auto;
+}
+#myDialog #div-dialog header {
+    position: fixed;
+    background-color: #d42026;
+    padding: 2px;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    top: 16px;
+    left: 11%;
+    height: 33px;
+    width: 450px;    
+}
+#myDialog #div-dialog span {
+    background-color: #d42026;
+    position: fixed;
+    left: 79%;
+    height: 55px;
+    width: 55px;
+    font-size: 42px;
+    text-align: center;
+    border-bottom-left-radius: 12px;
+}
+#myDialog #div-dialog span:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#myDialog #div-dialog h2 {
+    text-align: center;
+    margin-top: 0%;
+}
+#myDialog #div-dialog div {
+    padding: 30px;
+}
+#div-footer {
+    position: absolute;
+    background-color: #d42026;
+    width: 100%;
+    height: 12px;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}   
+
+@media only screen and (max-width : 830px) {
+    #tit-candidato {
+        margin-top: 32px;
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width : 500px) {
+    #text-personagem {
+        position: relative;
+        width: 100%;        
+    }   
+}
+
+@media only screen and (max-width : 360px) {
+    html {
+        width: 360px;
+        height: 640px;
+    }
+    #tit-busca-marvel, 
+    #tit-teste-front-end,
+    #tit-candidato, 
+    #linha-titulo,
+    #div-nome-personagem {
+        margin-left: 12px;
+        margin-right: 0px;
+        font-size: 16px;
+    }
+    #div-nome-personagem {
+        margin-top: 12px;
+    }
+    #text-personagem {
+        width: 295px;
+        height: 23px;
+    }
+    #div-all {
+        position: relative;
+        padding: 0;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }    
+    #list {
+        margin-top: -23px;
+        margin-left: 0px;
+    }
+    #th-series, #th-eventos {
+        display: none;
+    }
+    #table-list-personagens td:nth-child(1n+2),
+    #table-list-personagens tr:nth-child(1n+5),
+    .pagination-circle:nth-child(1n+5) {
+        display: none;
+    }    
+    #tit-candidato {display: none;}
+    #table-list-personagens td {
+        font-size: 21px;
+        padding: 13px;
+        height: 50px;
+        border-bottom: 1px solid #d42026;
+    }
+    #table-list-personagens tbody tr:hover {
+        background-color: #FFFFFF;
+    }    
+    #div-navegation {
+        position: relative;
+        display: inline-table;
+        left: 30px;
+    }
+    .pagination-arrow-left {
+        position: relative;
+        left: -16px;
+    }
+    .pagination-arrow-right {
+        position: relative;
+        left: 40px;
+    }    
+    #myDialog #div-dialog span {
+        background-color: #d42026;
+        position: relative;
+        left: 90%;
+        font-size: 24px;
+    }    
+    #myDialog #div-dialog {
+        position: absolute;
+        background-color: #FFFFFF;
+        left: 3%;
+        width: 84%;
+        height: 76%;
+        top: 6%;
+        border-radius: 5px;
+        overflow: auto;
+        font-size: 10px;
+    }
+    #myDialog #div-dialog header {
+        background-color: #d42026;
+        padding: 1px;
+        color: #ffffff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 10px;
+    }    
+    #myDialog #div-dialog header {
+        position: fixed;
+        background-color: #d42026;
+        padding: 3px;
+        color: #ffffff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        left: 4%;
+        height: 30px;
+        width: 173px;    
+        font-size: 12px;
+    }    
+    #myDialog #div-dialog span {
+        position: fixed;
+        background-color: #d42026;
+        padding: 3px;
+        color: #ffffff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        left: 78%;
+        height: 30px;
+        width: 53px;    
+        font-size: 24px;
+    }        
+}
