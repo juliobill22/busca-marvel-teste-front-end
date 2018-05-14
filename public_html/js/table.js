@@ -75,10 +75,10 @@ function populaMainTable(id_page) {
                                                                 String.fromCharCode(39) + escape(results[i].name) + String.fromCharCode(39) + ")");
 
                     var td1 = document.createElement("td");
-                    td1.innerHTML =
-                            "<img src=" + myObj.data.results[i].thumbnail.path + "." + results[i].thumbnail.extension + ">" +
-                            "" + results[i].name + "";
-
+                    var path = myObj.data.results[i].thumbnail.path;
+                    path = path.replace("http:", "https:");
+                    td1.innerHTML = "<img src=" + path + "." + results[i].thumbnail.extension + ">" + "" + results[i].name + "";
+                    
                     var td2 = document.createElement("td");
                     td2.innerHTML = getSeries(results[i].series);
                     var td3 = document.createElement("td");

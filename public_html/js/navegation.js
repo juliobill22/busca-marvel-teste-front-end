@@ -42,8 +42,15 @@ function createDivs(qtde) {
         new_link.setAttribute("class", "pagination-circle-a");
         new_link.setAttribute("onclick", "clickCircle(" + name_formated + ")");
 
-        //esconder todos os link's e divPag acima de 6
-        if (i <= 6) {
+        //esconder todos os link's e divPag acima de "qtde_page"
+        var qtde_page;
+        var width_page = document.documentElement.scrollWidth;
+        if (width_page > 410) {
+            qtde_page = 6;
+        } else {
+            qtde_page = 3;
+        }
+        if (i <= qtde_page) {
             new_link.style.display = '';
             new_div_pag.style.display = '';
         }
@@ -73,8 +80,16 @@ function escondeAllDivs() {
     paramConfig.pagesLoads = "";
 }
 function reallocateBottons(side) {
-
-    var qtde_page = 6;
+    
+    
+    var qtde_page;
+    var width_page = document.documentElement.scrollWidth;
+    if (width_page > 410) {
+        qtde_page = 6;
+    } else {
+        qtde_page = 3;
+    }
+    
     id_min = Number(((id_atual > qtde_page) ? (id_atual - (qtde_page - 1)) : 1));
     id_max = Number(((id_min > 1) ? (id_min + (qtde_page - 1)) : qtde_page));
 
@@ -87,7 +102,7 @@ function reallocateBottons(side) {
         var txt = "#pagination-circle-a-" + (i + 1);
         var link = document.querySelector(txt);
 
-        var mostrar = (((i + 1) >= id_min) && ((i + 1) <= id_max));
+        var mostrar = (((i + 1) >= id_min) && ((i + 1) <= id_max));        
         if (mostrar) {
             pagination_circle[i].style.display = '';
             link.style.display = '';

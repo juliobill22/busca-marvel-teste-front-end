@@ -1,8 +1,29 @@
-/* Created on : Apr 26, 2018, 3:39:03 PM Author : Julio Bill Schvenger */
+/* Created on : Apr 26, 2018, 3:39:03 
+   PM Author : Julio Bill Schvenger */
 * {
     font-family: 'Roboto';
 }
-#tit-busca-marvel, #tit-teste-front-end, #tit-candidato {
+/* content */
+#div-all {
+    margin-top: 20px;
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: 42px;
+}
+#div-list-navegation {    
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+}
+input {
+    display: block;
+}
+
+/* título */
+#tit-busca-marvel, 
+#tit-teste-front-end, 
+#tit-candidato {
     opacity: 100%;
     color: #d42026;
     font-size: 27px;
@@ -18,6 +39,7 @@
     font-weight: lighter;
     position: absolute;
     right: 50px;
+    font-size: 16px;
 }
 #linha-titulo {
     background-color: #d42026;
@@ -32,28 +54,17 @@
     opacity: 100%;
 }
 #text-personagem {
-    width: 400px;
+    width: 440px;
     height: 31px;
     border: 1px solid #a5a5a5;
     border-radius: 3px;
 }
-#div-all {
-    margin-top: 20px;
-    margin-left: 42px;
-    margin-right: 42px;
-}
-#div-list-navegation {
-    overflow: auto;
-    height: 300px;
-}
-input {
-    display: block;
-}
+
+/* tabela */
 #table-list-personagens {
     width: 100%;
-    height: 20%;
+    height: 100%;
     border-collapse: collapse;
-    position: relative;
 }
 #table-list-personagens th, td {
     text-align: left;
@@ -72,15 +83,18 @@ input {
     background-color: #d42026;
     border-right: 10px solid #FFFFFF;
     color: #FFFFFF;
-    width: 25%;
+    width: 270px;
     height: 37px;
     padding-left: 15px;
+}
+#th-series {
+    width: 545px;
 }
 #th-eventos {
     background-color: #d42026;
     border-left: 10px solid #d42026;
     color: #FFFFFF;
-    height: 37px;
+    height: 47px;
     padding-left: 15px;
 }
 img {
@@ -88,24 +102,28 @@ img {
     height: 58px;
     border-radius: 50%;
 }
+
+/* botões */
 #div-navegation {
-    position: relative;
+    position: static;
     text-align: center;
-    margin-top: 42px;
-    background-color: #FFFFFF;
-    margin-left: 1px;
     user-select: none;
+    margin-bottom: 45px;
 }
+
+/* formato dos botões */
 .pagination-circle {
-    background-color: #FFFFFF;
+    position: static;
     height: 32px;
     width: 32px;     
+    bottom: 60px;
     border-radius: 50%;
     margin-left: 25px;
     border: 1px solid #d42026;
     display: inline-block;
     cursor: pointer;
 }
+/* circulo */
 .pagination-circle a {
     font-size: 21px;
     text-decoration: none;
@@ -116,10 +134,10 @@ img {
 }
 .pagination-circle:hover {background-color: #d42026;}
 .pagination-circle:hover a {color: #ffffff;}
-
 .pagination-circle-active {background-color: #d42026;}
 .pagination-circle-active a {color: #ffffff;}
 
+/* triângulo */
 .pagination-arrow-left, .pagination-arrow-right {
     background-color: #d42026;
     display: inline-block;
@@ -129,28 +147,41 @@ img {
     border-bottom: 8px solid #FFFFFF;
 }    
 .pagination-arrow-left {    
-    left: 10px;
+    right: 15px;
     border-left: 12px solid #FFFFFF;
     border-right: 12px solid #d42026;           
 }
 .pagination-arrow-right {
-    right: -16px;
+    left: 40px;
     border-left: 12px solid #d42026;       
     border-right: 12px solid #FFFFFF;    
 }
-.pagination-arrow-left:hover, .pagination-arrow-right:hover {
+.pagination-arrow-left:hover, 
+.pagination-arrow-right:hover {
     opacity: 0.3;
-}            
+}
+
+/* rodapé */
+#div-footer {
+    position: fixed;
+    background-color: #d42026;
+    width: 100%;
+    height: 12px;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+/* Dialog */
 #myDialog {
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
+    padding-top: 20px;
+    margin-top: 5px;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);    
+    background-color: rgba(0,0,0,0.8);    
     border-width: 0px;
 }
 #myDialog #div-dialog {
@@ -160,12 +191,12 @@ img {
     right: 10%;
     width: 77%;
     height: 76%;
-    margin-top: -6%;
+    margin-top: 0%;
     border-radius: 10px;
     overflow: auto;
 }
 #myDialog #div-dialog header {
-    position: fixed;
+    position: relative;
     background-color: #d42026;
     padding: 2px;
     color: #ffffff;
@@ -174,7 +205,7 @@ img {
     top: 16px;
     left: 11%;
     height: 33px;
-    width: 450px;    
+    width: 45%;    
 }
 #myDialog #div-dialog span {
     background-color: #d42026;
@@ -184,13 +215,12 @@ img {
     width: 55px;
     font-size: 42px;
     text-align: center;
-    border-bottom-left-radius: 12px;
+    margin-top: 0px;
 }
 #myDialog #div-dialog span:hover {
-    opacity: 0.5;
+    color: maroon;
     cursor: pointer;
 }
-
 #myDialog #div-dialog h2 {
     text-align: center;
     margin-top: 0%;
@@ -198,92 +228,92 @@ img {
 #myDialog #div-dialog div {
     padding: 30px;
 }
-#div-footer {
-    position: absolute;
-    background-color: #d42026;
-    width: 100%;
-    height: 12px;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
-}   
 
-@media only screen and (max-width : 830px) {
-    #tit-candidato {
-        margin-top: 32px;
-        font-size: 16px;
-    }
-}
-@media only screen and (max-width : 500px) {
-    #text-personagem {
-        position: relative;
-        width: 100%;        
-    }   
-}
 
-@media only screen and (max-width : 360px) {
-    html {
-        width: 360px;
-        height: 640px;
-    }
+
+/* layout responsive */
+@media only screen and (max-width : 410px) {
+    /* títulos */
     #tit-busca-marvel, 
     #tit-teste-front-end,
     #tit-candidato, 
     #linha-titulo,
     #div-nome-personagem {
-        margin-left: 12px;
-        margin-right: 0px;
-        font-size: 16px;
+        font-size: 14px;
     }
+    /* campo de pesquisa */
     #div-nome-personagem {
         margin-top: 12px;
     }
     #text-personagem {
-        width: 295px;
-        height: 23px;
+        width: 100%;
+        height: 25px;
     }
+    /* conteúdo */
     #div-all {
-        position: relative;
+        position: absolute;
         padding: 0;
         margin-top: 0px;
         margin-left: 0px;
         margin-right: 0px;
+        width: 96%;
+        height: 60%;
+    }    
+    #div-list-navegation {    
+        position: relative;
+        width: 100%;
+        height: 100%;
     }    
     #list {
         margin-top: -23px;
         margin-left: 0px;
     }
+    /* tabela */
     #th-series, #th-eventos {
         display: none;
     }
-    #table-list-personagens td:nth-child(1n+2),
-    #table-list-personagens tr:nth-child(1n+5),
-    .pagination-circle:nth-child(1n+5) {
+    #table-list-personagens td:nth-child(1n+2) {
         display: none;
-    }    
-    #tit-candidato {display: none;}
+    }   
+    #table-list-personagens {
+        position: relative;
+        height: 5px;
+    }
     #table-list-personagens td {
         font-size: 21px;
         padding: 13px;
-        height: 50px;
+        height: 60px;
         border-bottom: 1px solid #d42026;
     }
     #table-list-personagens tbody tr:hover {
         background-color: #FFFFFF;
     }    
+    #th-personagem, #th-series {
+        border-right: 1px;
+    }
+    
+    /* navegação */
     #div-navegation {
-        position: relative;
+        position: absolute;
         display: inline-table;
-        left: 30px;
+        left: 20%;
+        bottom: 0%;
     }
     .pagination-arrow-left {
         position: relative;
-        left: -16px;
+        left: -28px;
     }
     .pagination-arrow-right {
         position: relative;
-        left: 40px;
+        left: 50px;
     }    
+    
+    /* tela de detalhes */
+    #myDialog {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
     #myDialog #div-dialog span {
         background-color: #d42026;
         position: relative;
@@ -293,33 +323,23 @@ img {
     #myDialog #div-dialog {
         position: absolute;
         background-color: #FFFFFF;
-        left: 3%;
-        width: 84%;
-        height: 76%;
-        top: 6%;
+        width: 100%;
+        height: 100%;
+        left: -3%;
+        top: 0%;
         border-radius: 5px;
         overflow: auto;
         font-size: 10px;
     }
     #myDialog #div-dialog header {
         background-color: #d42026;
-        padding: 1px;
         color: #ffffff;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        font-size: 10px;
-    }    
-    #myDialog #div-dialog header {
+        top: 0%;
+        left: 0%;
+        font-size: 10px;        
         position: fixed;
-        background-color: #d42026;
         padding: 3px;
         color: #ffffff;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        left: 4%;
-        height: 30px;
-        width: 173px;    
-        font-size: 12px;
     }    
     #myDialog #div-dialog span {
         position: fixed;
@@ -328,9 +348,10 @@ img {
         color: #ffffff;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        left: 78%;
+        left: 85%;
         height: 30px;
         width: 53px;    
         font-size: 24px;
+        top: 0%;
     }        
 }
