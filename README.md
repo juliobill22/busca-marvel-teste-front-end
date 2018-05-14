@@ -1,5 +1,5 @@
-# Projeto para a empresa Objective, onde o objetivo é demonstrar a capacidade em criar uma SPA (Single Page Application) responsiva utilizando HTML, Javascript e CSS.
+# Single Page Application responsiva utilizando HTML, Javascript e CSS.
 
-Concluído
-"# busca-marvel-teste-front-end" 
-"# busca-marvel-teste-front-end" 
+# Objetivo
+# Possibilitar a busca dos heróis da Marvel
+# Apresentar eventos e séries de cada herói.
