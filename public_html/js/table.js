@@ -2,6 +2,8 @@
 /* Created on : Apr 27, 2018, 12:17:03 
  * PM Author : Julio Bill Schvenger */
 
+/* global pageloads */
+
 function createAll(qtde_all_rows, qtde_for_page) {
     var pages = Math.ceil(qtde_all_rows / qtde_for_page);
     createDivs(pages);
@@ -316,9 +318,9 @@ function closeDialog() {
 function pageIsLoaded(id_page) {
 
     var loaded = false;
-    var length = paramConfig.pagesLoads.length;
+    var length = length;
     for (var i = 0; i < length; i++) {
-        if (paramConfig.pagesLoads[i] == id_page) {
+        if (pageloads[i] === id_page) {
             loaded = true;
             break;
         }
@@ -326,16 +328,21 @@ function pageIsLoaded(id_page) {
     return loaded;
 }
 function setPageLoaded(id_page) {
-    var encontrou = false;
-    var length = paramConfig.pagesLoads.length;
-    for (var i = 0; i < length; i++) {
-        if (paramConfig.pagesLoads[i] == id_page) {
-            encontrou = true;
-            break;
+    try {
+        var encontrou = false;
+        var length = pageloads.length;
+        for (var i = 0; i < length; i++) {
+            if (pageloads[i] === id_page) {
+                encontrou = true;
+                break;
+            }
         }
+        if (!encontrou) {
+            //pageloads.push(parseInt(id_page));
+        }        
     }
-    if (!encontrou) {
-        paramConfig.pagesLoads.push(id_page);
+    catch (e) {
+        alert(e);
     }
 }
 function setarLoader(visible) {

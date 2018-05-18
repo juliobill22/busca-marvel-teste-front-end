@@ -1,5 +1,8 @@
 /* Created on : Apr 26, 2018, 3:39:03 
    PM Author : Julio Bill Schvenger */
+body {
+    height: 100%;
+}
 * {
     font-family: 'Roboto';
 }
@@ -13,13 +16,11 @@
 #div-list-navegation {    
     position: relative;
     width: 100%;
-    height: 100%;
-    overflow: auto; 
+    height: 90%;
 }
 input {
     display: block;
 }
-
 /* título */
 #tit-busca-marvel, 
 #tit-teste-front-end, 
@@ -62,9 +63,11 @@ input {
 
 /* tabela */
 #table-list-personagens {
+    position: static;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
+    overflow: auto;
 }
 #table-list-personagens th, td {
     text-align: left;
@@ -105,25 +108,23 @@ img {
 
 /* botões */
 #div-navegation {
-    position: static;
     text-align: center;
     user-select: none;
-    margin-bottom: 45px;
-}
-
-/* formato dos botões */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;    
+}   
 .pagination-circle {
-    position: static;
     height: 32px;
     width: 32px;     
     bottom: 60px;
     border-radius: 50%;
-    margin-left: 25px;
     border: 1px solid #d42026;
     display: inline-block;
     cursor: pointer;
-}
-/* circulo */
+    margin-left: 10px;
+    margin-right: 10px;
+}            
 .pagination-circle a {
     font-size: 21px;
     text-decoration: none;
@@ -132,34 +133,36 @@ img {
     margin-top: 13%;
     cursor: pointer;
 }
+
 .pagination-circle:hover {background-color: #d42026;}
 .pagination-circle:hover a {color: #ffffff;}
+
 .pagination-circle-active {background-color: #d42026;}
 .pagination-circle-active a {color: #ffffff;}
 
-/* triângulo */
 .pagination-arrow-left, .pagination-arrow-right {
     background-color: #d42026;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;                
     border-top: 8px solid #FFFFFF;
     border-bottom: 8px solid #FFFFFF;
 }    
 .pagination-arrow-left {    
-    right: 15px;
+    display: inline-block;
+    position: relative;
+    left: -16px;                
     border-left: 12px solid #FFFFFF;
     border-right: 12px solid #d42026;           
 }
 .pagination-arrow-right {
-    left: 40px;
+    display: inline-block;
+    position: relative;
+    left: 16px;
     border-left: 12px solid #d42026;       
     border-right: 12px solid #FFFFFF;    
 }
 .pagination-arrow-left:hover, 
 .pagination-arrow-right:hover {
     opacity: 0.3;
-}
+}            
 
 /* rodapé */
 #div-footer {
@@ -176,11 +179,9 @@ img {
 #myDialog {
     position: fixed;
     z-index: 1;
-    padding-top: 20px;
-    margin-top: 5px;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    margin-top: -3%;
     background-color: rgba(0,0,0,0.8);    
     border-width: 0px;
 }
@@ -190,8 +191,8 @@ img {
     left: 10%;
     right: 10%;
     width: 77%;
-    height: 76%;
-    margin-top: 0%;
+    height: 80%;
+    margin-top: 3%;
     border-radius: 10px;
     overflow: auto;
 }
@@ -247,7 +248,7 @@ img {
     }
     #text-personagem {
         width: 100%;
-        height: 25px;
+        height: 20px;
     }
     /* conteúdo */
     #div-all {
@@ -257,15 +258,16 @@ img {
         margin-left: 0px;
         margin-right: 0px;
         width: 96%;
-        height: 60%;
+        height: 80%;
     }    
     #div-list-navegation {    
+        margin-top: -15px;
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 85%;
     }    
     #list {
-        margin-top: -23px;
+        margin-top: 0px;
         margin-left: 0px;
     }
     /* tabela */
@@ -277,12 +279,12 @@ img {
     }   
     #table-list-personagens {
         position: relative;
-        height: 5px;
+        height: 3px;
     }
     #table-list-personagens td {
-        font-size: 21px;
-        padding: 13px;
-        height: 60px;
+        font-size: 14px;
+        padding: 7px;
+        height: 50px;
         border-bottom: 1px solid #d42026;
     }
     #table-list-personagens tbody tr:hover {
@@ -291,26 +293,71 @@ img {
     #th-personagem, #th-series {
         border-right: 1px;
     }
-    
+
     /* navegação */
     #div-navegation {
-        position: absolute;
-        display: inline-table;
-        left: 20%;
-        bottom: 0%;
+        text-align: center;
+        user-select: none;
+        position: fixed;
+        width: 100%;
+        left: 0%;
+        right: 0%;
+        width: 100%;
+        bottom: 1%;
+        padding-top: 10px;
+        padding-left: 2px;
+        padding-right: 25px;
+        background-color: #FFFFFF;
+    }   
+    .pagination-circle {
+        height: 32px;
+        width: 32px;     
+        bottom: 60px;
+        border-radius: 50%;
+        border: 1px solid #d42026;
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 10px;
+    }            
+    .pagination-circle a {
+        font-size: 21px;
+        text-decoration: none;
+        color: #d42026;
+        display: inline-block;
+        margin-top: 13%;
+        cursor: pointer;
     }
-    .pagination-arrow-left {
-        position: relative;
-        left: -28px;
+    .pagination-circle:hover {background-color: #d42026;}
+    .pagination-circle:hover a {color: #ffffff;}
+
+    .pagination-circle-active {background-color: #d42026;}
+    .pagination-circle-active a {color: #ffffff;}    
+    .pagination-arrow-left, .pagination-arrow-right {
+        background-color: #d42026;
+        border-top: 8px solid #FFFFFF;
+        border-bottom: 8px solid #FFFFFF;
+    }    
+    .pagination-arrow-left {    
+        display: inline-block;
+        position: relative;         
+        border-left: 12px solid #FFFFFF;
+        border-right: 12px solid #d42026;           
     }
     .pagination-arrow-right {
+        display: inline-block;
         position: relative;
-        left: 50px;
-    }    
-    
+        border-left: 12px solid #d42026;       
+        border-right: 12px solid #FFFFFF;    
+    }
+    .pagination-arrow-left:hover, 
+    .pagination-arrow-right:hover {
+        opacity: 0.3;
+    }            
+
     /* tela de detalhes */
     #myDialog {
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100%;
     }

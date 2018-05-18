@@ -6,9 +6,9 @@ const KEY_public = '8165d4066afb26d34456ff3d6b5ba169';
 
 var paramConfig = {
     pageActive: "1", 
-    qtdeRowsPage: 10,
-    pagesLoads: [ ]
+    qtdeRowsPage: 10
 };
+var pageloads = [];
 
 /* Created on : Apr 27, 2018, 12:17:03 
  * PM Author : Julio Bill Schvenger */
@@ -22,7 +22,7 @@ function createAllPages(qtde_for_page) {
     var qtde_all_rows;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             var myObj = JSON.parse(this.responseText);
             qtde_all_rows = myObj.data.total;
             callback(qtde_all_rows);

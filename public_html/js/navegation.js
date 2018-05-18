@@ -2,7 +2,7 @@
 /* Created on : Apr 27, 2018, 12:17:03 
  * PM Author : Julio Bill Schvenger */
 
-/* global paramConfig */
+/* global pageloads */
 
 function createDivs(qtde) {
     var div_list_naveg = document.querySelector("#div-list-navegation");
@@ -77,7 +77,7 @@ function escondeAllDivs() {
     for (var i = 0; i < length; i++) {
         all.item(i).style.display = 'none';
     }
-    paramConfig.pagesLoads = "";
+    pageloads = "1";
 }
 function reallocateBottons(side) {
     
