@@ -144,6 +144,7 @@ img {
     background-color: #d42026;
     border-top: 8px solid #FFFFFF;
     border-bottom: 8px solid #FFFFFF;
+    cursor: pointer;
 }    
 .pagination-arrow-left {    
     display: inline-block;
@@ -229,8 +230,6 @@ img {
 #myDialog #div-dialog div {
     padding: 30px;
 }
-
-
 
 /* layout responsive */
 @media only screen and (max-width : 410px) {
@@ -400,5 +399,5 @@ img {
         width: 53px;    
         font-size: 24px;
         top: 0%;
-    }        
+    }
 }

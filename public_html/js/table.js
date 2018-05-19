@@ -2,7 +2,7 @@
 /* Created on : Apr 27, 2018, 12:17:03 
  * PM Author : Julio Bill Schvenger */
 
-/* global pageloads */
+/* global pageloads, results, KEY_public */
 
 function createAll(qtde_all_rows, qtde_for_page) {
     var pages = Math.ceil(qtde_all_rows / qtde_for_page);
@@ -61,11 +61,11 @@ function populaMainTable(id_page) {
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var myObj = JSON.parse(this.responseText);
-                var results = myObj.data.results;
+            if (this.readyState === 4 && this.status === 200) {
+                var myObjPopTable = JSON.parse(this.responseText);
+                var resultsPopTable = myObjPopTable.data.results;
                 
-                for (var i in results) {
+                for (var i in resultsPopTable) {
 
                     var tr = document.createElement("tr");
                     var tbody_name = "#tbody-div-child-" + id_page;
@@ -73,18 +73,18 @@ function populaMainTable(id_page) {
 
                     tbody.appendChild(tr);
 
-                    tr.setAttribute("onclick", "openDetails(" + String.fromCharCode(39) + results[i].id + String.fromCharCode(39) + "," + 
-                                                                String.fromCharCode(39) + escape(results[i].name) + String.fromCharCode(39) + ")");
+                    tr.setAttribute("onclick", "openDetails(" + String.fromCharCode(39) + resultsPopTable[i].id + String.fromCharCode(39) + "," + 
+                                                                String.fromCharCode(39) + escape(resultsPopTable[i].name) + String.fromCharCode(39) + ")");
 
                     var td1 = document.createElement("td");
-                    var path = myObj.data.results[i].thumbnail.path;
+                    var path = myObjPopTable.data.results[i].thumbnail.path;
                     path = path.replace("http:", "https:");
-                    td1.innerHTML = "<img src=" + path + "." + results[i].thumbnail.extension + ">" + "" + results[i].name + "";
+                    td1.innerHTML = "<img src=" + path + "." + resultsPopTable[i].thumbnail.extension + ">" + "" + resultsPopTable[i].name + "";
                     
                     var td2 = document.createElement("td");
-                    td2.innerHTML = getSeries(results[i].series);
+                    td2.innerHTML = getSeries(resultsPopTable[i].series);
                     var td3 = document.createElement("td");
-                    td3.innerHTML = getEvents(results[i].events);
+                    td3.innerHTML = getEvents(resultsPopTable[i].events);
 
                     tr.appendChild(td1);
                     tr.appendChild(td2);
@@ -92,7 +92,7 @@ function populaMainTable(id_page) {
 
                 }
 
-                if (results.length != 0) {
+                if (resultsPopTable.length !== 0) {
                     setPageLoaded(id_page);
                 }
             }
@@ -101,6 +101,7 @@ function populaMainTable(id_page) {
 
         var timestamp = getTimestamp();
         var hash = getHash(timestamp);
+        
         var caminho =
                 "https://gateway.marvel.com:443/v1/public/characters?" +
                 "ts=" + timestamp +
@@ -109,28 +110,31 @@ function populaMainTable(id_page) {
                 "&limit=" + limit +
                 "&apikey=" + KEY_public +
                 "&hash=" + hash;
-
-        xmlhttp.open("GET", caminho, true);
+        
+        xmlhttp.open("GET", caminho, false);
         xmlhttp.send();
     }
 }
 function populaSeriesDetails(id_characters) {
     try {
-        setarLoader(false);
-
+        
         var xmlhttp = new XMLHttpRequest();
         var detail_series = document.querySelector("#detail-series");
 
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var myObj = JSON.parse(this.responseText);
-                
-                var results = myObj.data.results.length;
+            if (this.readyState === 4 && this.status === 200) {
+                var myObjSeries = JSON.parse(this.responseText);
+                var results = myObjSeries.data.results.length;
+                var txt = "";
                 for (var i = 0; i < results; i++) {
-                    detail_series.innerHTML += "<h4>" + myObj.data.results[i].title + "</h4>" +
-                            "Descrição: " + myObj.data.results[i].description + " - " +
+                     txt += "<h4>" + myObjSeries.data.results[i].title + "</h4>" +
+                            "Descrição: " + myObjSeries.data.results[i].description + " - " +
                             "<hr>";
                 }
+                if (txt === "") {
+                   txt += "Nenhuma Série"; 
+                }
+                detail_series.innerHTML = txt;
             }
         };
 
@@ -141,7 +145,7 @@ function populaSeriesDetails(id_characters) {
                 "&apikey=" + KEY_public +
                 "&hash=" + hash;
 
-        xmlhttp.open("GET", caminho, true);
+        xmlhttp.open("GET", caminho, false);
         xmlhttp.send();
 
     }
@@ -149,26 +153,29 @@ function populaSeriesDetails(id_characters) {
         document.getElementById("error").innerHTML = err.message;
     }
     finally {
-        setarLoader(false);
+        
     }
 
 }
 function populaEventsDetails(id_characters) {
     try {
-        setarLoader(true);
         var xmlhttp = new XMLHttpRequest();
         var detail_events = document.getElementById("detail-events");
 
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var myObj = JSON.parse(this.responseText);
-                
-                var results = myObj.data.results.length;
+            if (this.readyState === 4 && this.status === 200) {
+                var myObjEvents = JSON.parse(this.responseText);
+                var txt = "";
+                var results = myObjEvents.data.results.length;
                 for (var i = 0; i < results; i++) {
-                    detail_events.innerHTML += "<h4>" + myObj.data.results[i].title + "</h4>" +
-                            "Descrição: " + myObj.data.results[i].description + " - ";
+                    txt += "<h4>" + myObjEvents.data.results[i].title + "</h4>" +
+                            "Descrição: " + myObjEvents.data.results[i].description + " - ";
                     "<hr>";
                 }
+                if (txt === "") {
+                   txt += "Nenhum Evento"; 
+                }
+                detail_events.innerHTML = txt;
             }
         };
 
@@ -187,7 +194,7 @@ function populaEventsDetails(id_characters) {
         document.getElementById("error").innerHTML = err.message;
     }
     finally {
-        setarLoader(false);
+        
     }
 
 }
@@ -280,11 +287,14 @@ function getEvents(events) {
     return txtEvent;
 }
 function openDetails(id_characters, name_characters) {
+    
+    setarLoader(true);
+    
     var name = unescape(name_characters);
     var dialog = document.querySelector("#myDialog");
-
     var exists = document.querySelector("#div-dialog");
-    if (exists == null) {
+    
+    if (exists === null) {
         var div = document.createElement("div");
     }
     else {
@@ -294,7 +304,8 @@ function openDetails(id_characters, name_characters) {
     dialog.open = true;
 
     div.setAttribute("id", "div-dialog");
-    div.innerHTML =
+    var txt = 
+            //"<div id="+String.fromCharCode(39) + "loader" + String.fromCharCode(39) + "></div>" +
             "<header> " +
             "  <span onclick=" + String.fromCharCode(39) + "closeDialog()" + String.fromCharCode(39) + ">&times;</span>" +
             "  <h2>" + name + "</h2>" +
@@ -305,11 +316,14 @@ function openDetails(id_characters, name_characters) {
             "  <h3>Eventos</h3>" +
             "  <br><div id=" + String.fromCharCode(39) + "detail-events" + String.fromCharCode(39) + "></div>" +
             "</div>";
+    div.innerHTML = txt;
     dialog.appendChild(div);
 
     populaSeriesDetails(id_characters);
     populaEventsDetails(id_characters);
 
+    setarLoader(false);
+        
 }
 function closeDialog() {
     var dialog = document.querySelector("#myDialog");
@@ -346,12 +360,10 @@ function setPageLoaded(id_page) {
     }
 }
 function setarLoader(visible) {
-    var load = document.getElementById("loader");
     if (visible) {
-        load.style.display = '';
-    }
-    else {
-        load.style.display = 'none';
+        document.getElementById("loader").style.display = '';
+    } else {
+        document.getElementById("loader").style.display = 'none';
     }
    
 }
