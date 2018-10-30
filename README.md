@@ -1,4 +1,4 @@
-# Single Page Application responsiva utilizando HTML, Javascript e CSS.
+# Single Page Application responsiva
 
 Este foi um teste que eu fiz para a empresa Objective Solutions, onde consiste em apresentar os heróis da Marvel disponibilizados por um serviso Rest.
 
