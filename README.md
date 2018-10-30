@@ -1,6 +1,6 @@
 # Single Page Application responsiva
 
-Este foi um teste que eu fiz para a empresa Objective Solutions, onde consiste em apresentar os heróis da Marvel disponibilizados por um serviso Rest.
+Este foi um teste que eu fiz para a empresa Objective Solutions, onde consiste em apresentar os heróis da Marvel disponibilizados por um serviço Rest.
 
 A página foi totalmente desenvolvida em HTML, Css e javascript (PUROS), ou seja, sem frameworks;
 
